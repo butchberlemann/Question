@@ -14,6 +14,42 @@ namespace Question.Models
     public class Triangle
     {
         /// <summary>
+        ///  Constructors using ints
+        /// </summary>
+        public Triangle(int aX, int aY, int bX, int bY, int cX, int cY, string name)
+        {
+            Initialize(aX, aY, bX, bY, cX, cY, name);
+        }
+
+        /// <summary>
+        ///  Constructors using strings
+        /// </summary>
+        public Triangle(string aX, string aY, string bX, string bY, string cX, string cY, string name)
+        {
+
+            Initialize(System.Convert.ToInt32(aX),
+                System.Convert.ToInt32(aY),
+                System.Convert.ToInt32(bX),
+                System.Convert.ToInt32(bY),
+                System.Convert.ToInt32(cX),
+                System.Convert.ToInt32(cY),
+                name);
+
+
+        }
+
+        private void Initialize(int aX, int aY, int bX, int bY, int cX, int cY, string name)
+        {
+            this.Name = name;
+            this.aX = aX;
+            this.aY = aY;
+            this.bX = bX;
+            this.bY = bY;
+            this.cX = cX;
+            this.cY = cY;
+        }
+
+        /// <summary>
         /// The name of the triangle.
         /// </summary>
         public string Name { get; set; }
@@ -42,113 +78,50 @@ namespace Question.Models
         /// </summary>
         public int cY { get; set; }
 
-        /// <summary>
-        /// Static function used to make a triangle object using integer  values for the x and y values for each side. 
-        /// </summary>
-        public static Triangle MakeTriangle(int aX, int aY, int bX, int bY, int cX, int cY, string name)
-        {
-            return new Triangle
-            {
-                Name = name,
-                aX = aX,
-                aY = aY,
-                bX = bX,
-                bY = bY,
-                cX = cX,
-                cY = cY
-            };
 
-        }
-
-        /// <summary>
-        /// Static function used to make a triangle object using sting values for the x and y values for each side.  
-        /// </summary>
-        public static Triangle MakeTriangle(string aX, string aY, string bX, string bY, string cX, string cY, string name)
-        {
-
-            return Triangle.MakeTriangle(System.Convert.ToInt32(aX),
-                                System.Convert.ToInt32(aY),
-                                System.Convert.ToInt32(bX),
-                                System.Convert.ToInt32(bY),
-                                System.Convert.ToInt32(cX),
-                                System.Convert.ToInt32(cY),
-                                name);
-
-
-        }
         /// <summary>
         /// Static function used to make a triangle where the A point is moved and the x value of the new triangle is 
         /// appended to the x of the provided triangle. The y value is provided to the new object without being altered. 
         /// </summary>
-        public static Triangle AddA(Triangle tri, int x, int y, string name)
+        public Triangle AddA( int x, int y, string name)
         {
-            return new Triangle
-            {
-                Name = name,
-                aX = tri.aX + x,
-                aY = y,
-                bX = tri.bX,
-                bY = tri.bY,
-                cX = tri.cX,
-                cY = tri.cY
-            };
+            return new Triangle(aX + x, y, bX, bY, cX,cY, name);
 
         }
         /// <summary>
-        /// Static function used to make a triangle where the B point is moved and the x value of the new triangle is 
+        /// Function used to make a triangle where the B point is moved and the x value of the new triangle is 
         /// appended  to the x of the provided triangle. The y value is provided to the new object without being altered. 
         /// </summary>
-        public static Triangle AddB(Triangle tri, int x, int y, string name)
+        public Triangle AddB( int x, int y, string name)
         {
-
-            return new Triangle
-            {
-                Name = name,
-                aX = tri.aX,
-                aY = tri.aY,
-                bX = tri.bX + x,
-                bY = y,
-                cX = tri.cX,
-                cY = tri.cY
-            };
+            return new Triangle(aX,aY,bX + x,y,cX,cY, name);
         }
 
         /// <summary>
-        /// Static function used to make a triangle where the C point is moved and the x value of the new triangle is 
+        /// Function used to make a triangle where the C point is moved and the x value of the new triangle is 
         /// appended  to the x of the provided triangle. The y value is provided to the new object without being altered. 
         /// </summary>
-        public static Triangle AddC(Triangle tri, int x, int y, string name)
+        public Triangle AddC(int x, int y, string name)
         {
-
-            return new Triangle
-            {
-                Name = name,
-                aX = tri.aX,
-                aY = tri.aY,
-                bX = tri.bX,
-                bY = tri.bY,
-                cX = tri.cX + x,
-                cY = y
-            };
-
+            return new Triangle(aX,aY,bX,bY,cX + x, y, name);
         }
 
         /// <summary>
-        /// Static function used to compare two triangles to each other. The comparisons is based only on the 
+        /// Function used to compare two triangles to each other. The comparisons is based only on the 
         /// x and y values for a given point. If the A point x and y match the B point of the second triangles 
         /// x and y and so on for B to C and C to B then the two triangles are said to match. 
         /// </summary>
-        public static bool TrianglesMatch(Triangle tri, Triangle tri2)
+        public bool TrianglesMatch(Triangle tri)
         {
             bool match = false;
             //See if the A point of the second triangle mataches any of the points on the other triangle
-            if (MatchesASide(tri, tri2.aX, tri2.aY))
+            if (MatchesASide(tri, this.aX, this.aY))
             {
                 //If A matched a point see if the b matches as well. 
-                if (MatchesASide(tri, tri2.bX, tri2.bY))
+                if (MatchesASide(tri, this.bX, this.bY))
                 {
                     //Finally see if the c matches as well. 
-                    if (MatchesASide(tri, tri2.cX, tri2.cY))
+                    if (MatchesASide(tri, this.cX, this.cY))
                     {
                         match = true;
                     }
@@ -158,9 +131,9 @@ namespace Question.Models
         }
 
         /// <summary>
-        /// Static function used to identify if a given x and y match any point on the provided triangle.  
+        /// Function used to identify if a given x and y match any point on the provided triangle.  
         /// </summary>
-        public static bool MatchesASide(Triangle tri, int x, int y)
+        private bool MatchesASide(Triangle tri, int x, int y)
         {
             bool match = false;
 
