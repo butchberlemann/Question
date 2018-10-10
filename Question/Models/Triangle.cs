@@ -9,7 +9,7 @@ namespace Question.Models
       /// Triangle class defines the properties of a triangle and utility functions commonly needed with working with triangles
       /// </summary>
       /// /// <remarks>
-      /// This class can make a triangle using, add a, b or c vertex, compare triangles and identify if a given x and y match a xy on a triangle. 
+      /// This class can spawn a new triangle by moving the a, b or c vertex of the current triangle, and verify if another triangle matches this one.
       /// </remarks>
     public class Triangle
     {
@@ -38,6 +38,9 @@ namespace Question.Models
 
         }
 
+        /// <summary>
+        ///  Private function used to support two differnt constructors
+        /// </summary>
         private void Initialize(int aX, int aY, int bX, int bY, int cX, int cY, string name)
         {
             this.Name = name;
@@ -80,34 +83,34 @@ namespace Question.Models
 
 
         /// <summary>
-        /// Static function used to make a triangle where the A point is moved and the x value of the new triangle is 
-        /// appended to the x of the provided triangle. The y value is provided to the new object without being altered. 
+        /// Function used to spawn a new triangle moving the A point of the current triangle. The x value provided is appended 
+        /// to the current triangle and the y value provided is used for the y. 
         /// </summary>
-        public Triangle AddA( int x, int y, string name)
+        public Triangle MoveA( int x, int y, string name)
         {
             return new Triangle(aX + x, y, bX, bY, cX,cY, name);
 
         }
         /// <summary>
-        /// Function used to make a triangle where the B point is moved and the x value of the new triangle is 
-        /// appended  to the x of the provided triangle. The y value is provided to the new object without being altered. 
+        /// Function used to spawn a new triangle moving the B point of the current triangle. The x value provided is appended 
+        /// to the current triangle and the y value provided is used for the y. 
         /// </summary>
-        public Triangle AddB( int x, int y, string name)
+        public Triangle MoveB( int x, int y, string name)
         {
             return new Triangle(aX,aY,bX + x,y,cX,cY, name);
         }
 
         /// <summary>
-        /// Function used to make a triangle where the C point is moved and the x value of the new triangle is 
-        /// appended  to the x of the provided triangle. The y value is provided to the new object without being altered. 
+        /// Function used to spawn a new triangle moving the C point of the current triangle. The x value provided is appended 
+        /// to the current triangle and the y value provided is used for the y. 
         /// </summary>
-        public Triangle AddC(int x, int y, string name)
+        public Triangle MoveC(int x, int y, string name)
         {
             return new Triangle(aX,aY,bX,bY,cX + x, y, name);
         }
 
         /// <summary>
-        /// Function used to compare two triangles to each other. The comparisons is based only on the 
+        /// Function used to compare a triangle to this triangle. The comparisons is based only on the 
         /// x and y values for a given point. If the A point x and y match the B point of the second triangles 
         /// x and y and so on for B to C and C to B then the two triangles are said to match. 
         /// </summary>
