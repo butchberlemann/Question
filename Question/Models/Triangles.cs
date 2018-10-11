@@ -8,46 +8,6 @@ namespace Question.Models
     public class Triangles
     {
 
-        public string FindCoordinatesForNameTURBO(string name)
-        {
-            //Initialize response with negative response. 
-            string coordinates = "Sorry... No triangles found";
-            string[] alpha = new string[] { "F", "E", "D", "C", "B", "A" };
-
-            string alphaValue = name.Substring(0,1);
-            int numberValue = Int32.Parse(name.Substring(1,(name.Length - 1)));
-
-            int minY = 0;
-
-            for (int i = 0; i <= alpha.Length ; i++)
-            {
-                if (alpha[i].StartsWith(alphaValue)) {
-                    minY = 10 * i;
-                    break;
-                }
-            }
-
-            int x = 0;
-            int y = 0;
-
-            if (numberValue % 2 == 0)
-            {
-                y = minY + 10;
-                x = (numberValue / 2) * 10; 
-            }
-            else{
-                y = minY;
-                x = ((numberValue - 1)/2) * 10 ;
-            }
-
-
-            coordinates = x + " " + y;
-
-
-
-
-            return coordinates;
-        }
         /// <summary>
         /// Function to 
         /// </summary>
@@ -65,12 +25,7 @@ namespace Question.Models
                 if (triangle.Name.Equals(name))
                 {
                     //if they do return the coordinates, overwriting the negative response. 
-                    coordinates = "{v2X:" + triangle.aX +
-                                   ",v2Y:" + triangle.aY + "}" +
-                                   "{v3X:" + triangle.bX +
-                                   ",v3Y:" + triangle.bY + "}" +
-                                   "{v1X:" + triangle.cX +
-                                   ",v1Y:" + triangle.cY + "}";
+                    coordinates = triangle.GetFormattedCoordinates();
                     break;
                 }
             }

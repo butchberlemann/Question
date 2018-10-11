@@ -17,28 +17,65 @@ namespace Question.Controllers
     public class TriangleController : ApiController
     {
       
-            /// <summary>
-            /// API Get used to query the data structure  for a triangle's  names and return the coordinates. 
-            /// </summary>
-            public string Get([FromUri] string name)
+        /// <summary>
+        /// API Get used to query the data structure  for a triangle's  names and return the coordinates. 
+        /// </summary>
+        public string Get([FromUri] string name)
+        {
+            Triangles triangleList = new Triangles();
+            return triangleList.FindCoordinatesForName(name); 
+        }
+
+        /// <summary>
+        /// API Get used to query the data structure  for a triangles XY and return the name
+        /// </summary>
+        public string Get([FromUri] string v2X, string v2Y, string v3X, string v3Y, string v1X, string v1Y)
+        {
+            Triangles triangleList = new Triangles();
+            return triangleList.FindNameForCoordinates(v2X, v2Y, v3X, v3Y, v1X, v1Y);
+        }
+
+        /// <summary>
+        /// API Get used to return the coordinate on the fly. 
+        /// </summary>
+        public string Get([FromUri] string name, string turbo)
+        {
+            string turboResult = "";
+
+            try
             {
-                
-                Triangles triangleList = new Triangles();
-            //return triangleList.FindCoordinatesForName(name);
-            return triangleList.FindCoordinatesForNameTURBO(name);
+                Triangle triangle = new Triangle(name);
+                turboResult = triangle.GetFormattedCoordinates();
+            }
+            catch (Exception)
+            {
+                turboResult = "Sorry... couldn't create a TURBO triangle with your input";
             }
 
+            return turboResult;
+        }
 
-            /// <summary>
-            /// API Get used to query the data structure  for a triangles XY and return the name
-            /// </summary>
-            public string Get([FromUri] string v2X, string v2Y, string v3X, string v3Y, string v1X, string v1Y)
+        /// <summary>
+        /// API  Get used to return the name on the fly from x and y values
+        /// </summary>
+        public string Get([FromUri] string v2X, string v2Y, string v3X, string v3Y, string v1X, string v1Y, string turbo)
+        {
+
+            string turboResult = "";
+
+            try
+            {
+                Triangle triangle = new Triangle(v2X, v2Y, v3X, v3Y, v1X, v1Y);
+                turboResult = triangle.Name;
+            }
+            catch (Exception)
             {
 
-                Triangles triangleList = new Triangles();
-                return triangleList.FindNameForCoordinates(v2X, v2Y, v3X, v3Y, v1X, v1Y); 
+                turboResult = "Sorry... couldn't create a TURBO triangle with your input";
             }
 
-        
+            return turboResult;
+        }
+
     }
 }
