@@ -40,27 +40,38 @@ namespace Question.Models
         {
             //Initialize response with negative response. 
             string triangleName = "Sorry... No triangles found";
-
-            //Create a triangle with the values provided and name it QUERY
-            Triangle queryTriangle = new Triangle(v2X, v2Y, v3X, v3Y, v1X, v1Y, "QUERY");
-
-            //Create local variable with data structure.
-            List<Triangle> triangles = BuildGrid();
-
-
-            //Loop threw all the triangles and find coordinates of the matching xy
-            foreach (var triangle in triangles)
+    
+            //Since it is possible that the parameters provided cannot be casted wrapping this bit of code
+            //in a try catch so something usable will be provided back to the user. 
+            try
             {
-                //Since we cannot assume that the A, B and C or the Name properties will match
-                //a X and Y comparison only is requried. 
-                if (triangle.TrianglesMatch(queryTriangle))
-                {
-                    //If the triangles match return the name. 
-                    triangleName = triangle.Name;
-                    break;
-                }
-            }
+                //Create a triangle with the values provided and name it QUERY
+                Triangle queryTriangle = new Triangle(v2X, v2Y, v3X, v3Y, v1X, v1Y, "QUERY");
 
+                //Create local variable with data structure.
+                List<Triangle> triangles = BuildGrid();
+
+
+                //Loop threw all the triangles and find coordinates of the matching xy
+                foreach (var triangle in triangles)
+                {
+                    //Since we cannot assume that the A, B and C or the Name properties will match
+                    //a X and Y comparison only is requried. 
+                    if (triangle.TrianglesMatch(queryTriangle))
+                    {
+                        //If the triangles match return the name. 
+                        triangleName = triangle.Name;
+                        break;
+                    }
+                }
+
+            }
+            catch (Exception)
+            {
+
+                triangleName = "Something went wrong... Please try again";
+            }
+            
             return triangleName;
         }
 

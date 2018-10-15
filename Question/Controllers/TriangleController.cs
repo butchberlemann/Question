@@ -49,7 +49,7 @@ namespace Question.Controllers
             }
             catch (Exception)
             {
-                turboResult = "Sorry... couldn't create a TURBO triangle with your input";
+                turboResult = "Something went wrong... Couldn't create a TURBO triangle with your input";
             }
 
             return "TURBO:" + turboResult;
@@ -71,7 +71,7 @@ namespace Question.Controllers
             catch (Exception)
             {
 
-                turboResult = "Sorry... couldn't create a TURBO triangle with your input";
+                turboResult = "Something went wrong... Couldn't create a TURBO triangle with your input";
             }
 
             return "TURBO:" + turboResult;
