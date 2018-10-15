@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Question.Models;
+using System.Diagnostics;
 
 namespace Question.Controllers
 {
@@ -23,7 +24,7 @@ namespace Question.Controllers
         public string Get([FromUri] string name)
         {
             Triangles triangleList = new Triangles();
-            return triangleList.FindCoordinatesForName(name); 
+            return triangleList.FindCoordinatesForName(name);
         }
 
         /// <summary>
@@ -41,7 +42,6 @@ namespace Question.Controllers
         public string Get([FromUri] string name, string turbo)
         {
             string turboResult = "";
-
             try
             {
                 Triangle triangle = new Triangle(name);
@@ -51,8 +51,8 @@ namespace Question.Controllers
             {
                 turboResult = "Something went wrong... Couldn't create a TURBO triangle with your input";
             }
-
-            return "TURBO:" + turboResult;
+            
+            return "TURBO:" + turboResult; 
         }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace Question.Controllers
 
                 turboResult = "Something went wrong... Couldn't create a TURBO triangle with your input";
             }
-
+            
             return "TURBO:" + turboResult;
         }
 
