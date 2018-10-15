@@ -52,7 +52,7 @@ namespace Question.Controllers
                 turboResult = "Sorry... couldn't create a TURBO triangle with your input";
             }
 
-            return turboResult;
+            return "TURBO:" + turboResult;
         }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace Question.Controllers
                 turboResult = "Sorry... couldn't create a TURBO triangle with your input";
             }
 
-            return turboResult;
+            return "TURBO:" + turboResult;
         }
 
     }

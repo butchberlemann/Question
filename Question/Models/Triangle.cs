@@ -5,12 +5,14 @@ using System.Web;
 
 namespace Question.Models
 {
-      /// <summary>
-      /// Triangle class defines the properties of a triangle and utility functions commonly needed with working with triangles
-      /// </summary>
-      /// /// <remarks>
-      /// This class can spawn a new triangle by moving the a, b or c vertex of the current triangle, and verify if another triangle matches this one.
-      /// </remarks>
+    /// <summary>
+    /// Triangle class defines the properties of a triangle and utility functions commonly needed with working with triangles
+    /// </summary>
+    /// /// <remarks>
+    /// This class can create triangles with all string parameters, int parameters for the vertex and string for the name
+    /// and create triangles with just a name or vertexes and spawn a new triangle by moving the a, b or c vertex of the current 
+    /// triangle, and verify if another triangle matches this one.
+    /// </remarks>
     public class Triangle
     {
         /// <summary>

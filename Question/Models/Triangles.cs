@@ -9,7 +9,7 @@ namespace Question.Models
     {
 
         /// <summary>
-        /// Function to 
+        /// Function to find the coordinates based on the provided name
         /// </summary>
         public string FindCoordinatesForName(string name) {
             //Initialize response with negative response. 
@@ -33,6 +33,9 @@ namespace Question.Models
             return coordinates;
         }
 
+        /// <summary>
+        /// Function to find the name based on a set of coordinates provided
+        /// </summary>
         public string FindNameForCoordinates(string v2X, string v2Y, string v3X, string v3Y, string v1X, string v1Y)
         {
             //Initialize response with negative response. 
@@ -61,7 +64,9 @@ namespace Question.Models
             return triangleName;
         }
 
-
+        /// <summary>
+        /// Function to build the grid
+        /// </summary>
         public List<Triangle> BuildGrid()
         {
 
