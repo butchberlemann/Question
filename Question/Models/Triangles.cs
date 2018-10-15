@@ -46,7 +46,7 @@ namespace Question.Models
         {
             //Initialize response with negative response. 
             string triangleName = "Sorry... No triangles found";
-    
+
             //Since it is possible that the parameters provided cannot be casted wrapping this bit of code
             //in a try catch so something usable will be provided back to the user. 
             try
@@ -63,7 +63,6 @@ namespace Question.Models
                 List<Triangle> triangles = BuildGrid();
                 //Triangle[] triangles = BuildGridArray();
 
-
                 //Loop threw all the triangles and find coordinates of the matching xy
                 foreach (var triangle in triangles)
                 {
@@ -77,6 +76,9 @@ namespace Question.Models
                     }
                 }
 
+            }
+            catch (FormatException) {
+                triangleName = "Looks like all the values you provided were not intergers. Please check your x y values. ";
             }
             catch (Exception)
             {

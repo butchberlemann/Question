@@ -68,6 +68,10 @@ namespace Question.Controllers
                 Triangle triangle = new Triangle(v2X, v2Y, v3X, v3Y, v1X, v1Y);
                 turboResult = triangle.Name;
             }
+            catch (FormatException)
+            {
+                turboResult = "Looks like all the values you provided were not intergers. Please check your x y values. ";
+            }
             catch (Exception)
             {
 
