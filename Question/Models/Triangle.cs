@@ -260,7 +260,8 @@ namespace Question.Models
         /// <summary>
         /// Function used to return the triangles coordinates
         /// </summary>
-        public string GetFormattedCoordinates()
+        public override string ToString()
+
         {
 
             string coordinates = "{v2X:" + this.aX +
@@ -271,7 +272,6 @@ namespace Question.Models
                                   ",v1Y:" + this.cY + "}";
 
             return coordinates;
-
         }
 
        

@@ -31,7 +31,7 @@ namespace Question.Models
                 if (triangle.Name.Equals(name))
                 {
                     //if they do return the coordinates, overwriting the negative response. 
-                    coordinates = triangle.GetFormattedCoordinates();
+                    coordinates = triangle.ToString();
                     break;
                 }
             }
@@ -122,12 +122,16 @@ namespace Question.Models
                     tris.Add(baseTriangle);
                 }
                 else {
-                    
-                    Triangle nextBaseTriangle = new Triangle(0, baseTriangle.aY + 10, 0, baseTriangle.bY + 10, 10, baseTriangle.cY + 10, alpha[i] + "1");
-                    tris.Add(nextBaseTriangle);
+
                     //Add to the yJump
-                    yJump = yJump + 10;
-                    currentRowIndex = (yJump / 10) * 12; 
+                    yJump += 10;
+
+                    Triangle nextBaseTriangle = new Triangle(0, tris[currentRowIndex].aY + 10, 0, tris[currentRowIndex].bY + 10, 10, tris[currentRowIndex].cY + 10, alpha[i] + "1");
+                    tris.Add(nextBaseTriangle);
+
+                    currentRowIndex = (yJump / 10) * 12;
+
+
                 }
 
                 //tris.Add -- Adding a new triangle to the data structure  

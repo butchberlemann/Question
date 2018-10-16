@@ -45,7 +45,7 @@ namespace Question.Controllers
             try
             {
                 Triangle triangle = new Triangle(name);
-                turboResult = triangle.GetFormattedCoordinates();
+                turboResult = triangle.ToString();
             }
             catch (Exception)
             {
