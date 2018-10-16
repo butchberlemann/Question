@@ -266,17 +266,29 @@ namespace Question.Models
 
         {
 
-            string coordinates = "{v2X:" + this.aX +
-                                  ",v2Y:" + this.aY + "}" +
-                                  "{v3X:" + this.bX +
-                                  ",v3Y:" + this.bY + "}" +
-                                  "{v1X:" + this.cX +
-                                  ",v1Y:" + this.cY + "}";
+            string response = FormatedCoordinates() +
+                                  "[Name:" + this.Name +"]";
 
-            return coordinates;
+            return response;
         }
 
-       
+        /// <summary>
+        /// Method used to return the triangles coordinates
+        /// </summary>
+        public string FormatedCoordinates()
+
+        {
+
+            string response =   "[v1X:" + this.aX +
+                                ",v1Y:" + this.aY + "]" +
+                                "[v2X:" + this.bX +
+                                ",v2Y:" + this.bY + "]" +
+                                "[v3X:" + this.cX +
+                                ",v3Y:" + this.cY + "]";
+
+            return response;
+        }
+
         /// <summary>
         /// Function used to spawn a new triangle moving the A point of the current triangle. The x value provided is appended 
         /// to the current triangle and the y value provided is used for the y. 

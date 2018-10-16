@@ -31,7 +31,7 @@ namespace Question.Models
                 if (triangle.Name.Equals(name))
                 {
                     //if they do return the coordinates, overwriting the negative response. 
-                    coordinates = triangle.ToString();
+                    coordinates = triangle.FormatedCoordinates();
                     break;
                 }
             }
