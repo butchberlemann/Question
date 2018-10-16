@@ -16,6 +16,36 @@ namespace Question.Models
     public class Triangle
     {
         /// <summary>
+        /// The name of the triangle.
+        /// </summary>
+        public string Name { get; private set; }
+        /// <summary>
+        /// The X corner of the A point of the triangle
+        /// </summary>
+        public int aX { get; private set; }
+        /// <summary>
+        /// The Y corner of the A point of the triangle
+        /// </summary>
+        public int aY { get; private set; }
+        /// <summary>
+        /// The X corner of the B point of the triangle
+        /// </summary>
+        public int bX { get; private set; }
+        /// <summary>
+        /// The Y corner of the B point of the triangle
+        /// </summary>
+        public int bY { get; private set; }
+        /// <summary>
+        /// The X corner of the C point of the triangle
+        /// </summary>
+        public int cX { get; private set; }
+        /// <summary>
+        /// The Y corner of the C point of the triangle
+        /// </summary>
+        public int cY { get; private set; }
+
+
+        /// <summary>
         ///  Constructors using ints
         /// </summary>
         public Triangle(int aX, int aY, int bX, int bY, int cX, int cY, string name)
@@ -228,37 +258,9 @@ namespace Question.Models
             this.cY = cY;
         }
 
-        /// <summary>
-        /// The name of the triangle.
-        /// </summary>
-        public string Name { get; set; }
-        /// <summary>
-        /// The X corner of the A point of the triangle
-        /// </summary>
-        public int aX { get; set; }
-        /// <summary>
-        /// The Y corner of the A point of the triangle
-        /// </summary>
-        public int aY { get; set; }
-        /// <summary>
-        /// The X corner of the B point of the triangle
-        /// </summary>
-        public int bX { get; set; }
-        /// <summary>
-        /// The Y corner of the B point of the triangle
-        /// </summary>
-        public int bY { get; set; }
-        /// <summary>
-        /// The X corner of the C point of the triangle
-        /// </summary>
-        public int cX { get; set; }
-        /// <summary>
-        /// The Y corner of the C point of the triangle
-        /// </summary>
-        public int cY { get; set; }
 
         /// <summary>
-        /// Function used to return the triangles coordinates
+        /// Overloaded ToString Method used to return the triangles coordinates
         /// </summary>
         public override string ToString()
 

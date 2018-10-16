@@ -102,7 +102,6 @@ namespace Question.Models
             //done so here without adjusting any of the other code. 
             string[] alpha = new string[] { "F", "E", "D", "C", "B", "A" };
 
-            Triangle baseTriangle = new Triangle(0, 10, 0, 0, 10, 0, "Base");
 
             //For every alpha value processed the y value for each point must be increased by 10. 
             //For the first row yJump is 0 but at the end of each iteration of the loop it is incremented by
@@ -118,7 +117,7 @@ namespace Question.Models
               
                 if (tris.Count() < 1)
                 {
-                    baseTriangle.Name = alpha[i] + "1";
+                    Triangle baseTriangle = new Triangle(0, 10, 0, 0, 10, 0, alpha[i] + "1");
                     tris.Add(baseTriangle);
                 }
                 else {
@@ -170,7 +169,7 @@ namespace Question.Models
             //done so here without adjusting any of the other code. 
             string[] alpha = new string[] { "F", "E", "D", "C", "B", "A" };
 
-            Triangle baseTriangle = new Triangle(0, 10, 0, 0, 10, 0, "Base");
+            
 
             //For every alpha value processed the y value for each point must be increased by 10. 
             //For the first row yJump is 0 but at the end of each iteration of the loop it is incremented by
@@ -186,12 +185,12 @@ namespace Question.Models
               
                 if (gridCounter == 0 )
                 {
-                    baseTriangle.Name = alpha[i] + "1";
+                    Triangle baseTriangle = new Triangle(0, 10, 0, 0, 10, 0, alpha[i] + "1");
                     tris[gridCounter] = baseTriangle;
                 }
                 else {
-                    
-                    Triangle nextBaseTriangle = new Triangle(0, baseTriangle.aY + 10, 0, baseTriangle.bY + 10, 10, baseTriangle.cY + 10, alpha[i] + "1");
+
+                    Triangle nextBaseTriangle = new Triangle(0, tris[currentRowIndex].aY + 10, 0, tris[currentRowIndex].bY + 10, 10, tris[currentRowIndex].cY + 10, alpha[i] + "1");
                     gridCounter++;
                     tris[gridCounter] = nextBaseTriangle;
                     //Add to the yJump
