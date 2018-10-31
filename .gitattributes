@@ -61,4 +61,14 @@
 #*.PDF   diff=astextplain
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
+
 Question/Question/Scripts/* linguist-vendored
+Question/Supporting/* linguist-vendored
+Question/Question/App_Start/* linguist-vendored
+Question/Question/Areas/* linguist-vendored
+Question/Question/Content/* linguist-vendored
+Question/Question/Properties/* linguist-vendored
+Question/Question/Scripts/* linguist-vendored
+Question/Question/Views/* linguist-vendored
+Question/Question/fonts/* linguist-vendored
+
