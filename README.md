@@ -1,6 +1,20 @@
 # Coding Question
 This project was created to satisfy a requirement for a job application at a software company as a software engineer. The exact requirements can be found [here](https://github.com/butchberlemann/Question/Supporting/CodingQuestion_2018.pdf). 
 
+All the logic is in three files
+
+[TriangleController.cs](https://github.com/butchberlemann/Question/blob/master/Question/Controllers/TriangleController.cs)
+The controller class used as entry point to the API. 
+
+[Triangle.cs](https://github.com/butchberlemann/Question/blob/master/Question/Models/Triangle.cs)
+The Triangle class is used to create and spawn new Triangles. 
+
+[Triangles.cs](https://github.com/butchberlemann/Question/blob/master/Question/Models/Triangles.cs)
+The Triangles class is used when the interactions of multiple Triangles is necessary. 
+
+
+
+
 I developed two approaches to solving this problem one that creates the desired result on the fly (look for TURBO in the code) and a second that uses an in-memory data structure. The diagrams I created below are intended to help explain how the data structure is constructed. 
   
 ## Data Structure Diagrams
