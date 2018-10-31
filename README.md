@@ -1,5 +1,5 @@
 # Coding Question
-This project was created to satisfy a requirement for a job application at a software company as a software engineer. The exact requirements can be found [here](Question/Supporting/CodingQuestion_2018 (1).pdf). 
+This project was created to satisfy a requirement for a job application at a software company as a software engineer. The exact requirements can be found [here](https://github.com/butchberlemann/Question/Supporting/CodingQuestion_2018 (1).pdf). 
 
 I developed two approaches to solving this problem one that creates the desired result on the fly (look for TURBO in the code) and a second that uses an in-memory data structure. The diagrams I created below are intended to help explain how the data structure is constructed. 
   
